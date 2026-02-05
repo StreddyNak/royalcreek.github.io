@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Royal Creek Neighborhood</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --creek-blue: #2c5f7a;
+            --creek-teal: #4a9b8e;
+            --sand: #e8dcc4;
+            --stone: #5a5550;
+            --sage: #8fa88e;
+            --cream: #faf8f3;
+            --sunset: #d68568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Karla', sans-serif;
+            background: var(--cream);
+            color: var(--stone);
+            line-height: 1.7;
+        }
+
+        .nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--creek-blue);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--stone);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--creek-teal);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--creek-teal);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--creek-blue);
+            cursor: pointer;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--creek-blue) 0%, var(--creek-teal) 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--sand);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--stone);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(44, 95, 122, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(44, 95, 122, 0.15);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--creek-teal), var(--sage));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .contact-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--creek-blue);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: var(--stone);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--creek-teal);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        .board-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(44, 95, 122, 0.08);
+            margin-bottom: 3rem;
+        }
+
+        .board-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--creek-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .board-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .board-member {
+            text-align: center;
+        }
+
+        .board-member h3 {
+            color: var(--creek-blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .board-member .role {
+            color: var(--creek-teal);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .board-member .email {
+            color: var(--stone);
+            font-size: 0.9rem;
+        }
+
+        .meeting-info {
+            background: linear-gradient(135deg, rgba(74, 155, 142, 0.1), rgba(143, 168, 142, 0.1));
+            border: 2px solid var(--creek-teal);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .meeting-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--creek-blue);
+            margin-bottom: 1rem;
+        }
+
+        .meeting-info p {
+            margin-bottom: 0.75rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            background: var(--creek-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--creek-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(44, 95, 122, 0.3);
+        }
+
+        footer {
+            background: var(--stone);
+            color: var(--sand);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .board-members {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Royal Creek</a>
+            <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="announcements.html">Announcements</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Get In Touch</h1>
+        <p>We're here to help and answer your questions</p>
+    </div>
+
+    <div class="container">
+        <div class="contact-intro">
+            <p>Have questions, suggestions, or concerns? The Royal Creek HOA Board is here to serve our community. We welcome your input and encourage residents to stay engaged with neighborhood matters.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h2>Email</h2>
+                <p>General inquiries and questions</p>
+                <a href="mailto:hoa@royalcreek.org">hoa@royalcreek.org</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h2>Location</h2>
+                <p>Royal Creek Neighborhood</p>
+                <p>Raleigh, NC 27603</p>
+                <p>Off Ten-Ten Road</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <h2>Phone</h2>
+                <p>Leave a message for the board</p>
+                <p><strong>(919) 555-0123</strong></p>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #888;">Messages returned within 48 hours</p>
+            </div>
+        </div>
+
+        <div class="meeting-info">
+            <h3>📅 HOA Board Meetings</h3>
+            <p><strong>When:</strong> Fourth Saturday of each month at 7:00 PM</p>
+            <p><strong>Where:</strong> Community Clubhouse</p>
+            <p><strong>Who can attend:</strong> All Royal Creek residents are welcome and encouraged to attend</p>
+            <p style="margin-top: 1rem;">Meetings provide an opportunity to stay informed about neighborhood business, voice concerns, ask questions, and participate in community decisions. We value resident input and participation!</p>
+            <a href="events.html" class="btn">View Upcoming Meetings</a>
+        </div>
+
+        <div class="board-section">
+            <h2>HOA Board Members</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--stone);">Your elected neighborhood representatives are here to serve the community</p>
+            
+            <div class="board-members">
+                <div class="board-member">
+                    <h3>John Smith</h3>
+                    <div class="role">President</div>
+                    <div class="email">president@royalcreek.org</div>
+                </div>
+
+                <div class="board-member">
+                    <h3>Sarah Johnson</h3>
+                    <div class="role">Vice President</div>
+                    <div class="email">vp@royalcreek.org</div>
+                </div>
+
+                <div class="board-member">
+                    <h3>Michael Chen</h3>
+                    <div class="role">Treasurer</div>
+                    <div class="email">treasurer@royalcreek.org</div>
+                </div>
+
+                <div class="board-member">
+                    <h3>Emily Rodriguez</h3>
+                    <div class="role">Secretary</div>
+                    <div class="email">secretary@royalcreek.org</div>
+                </div>
+
+                <div class="board-member">
+                    <h3>David Williams</h3>
+                    <div class="role">Member at Large</div>
+                    <div class="email">board@royalcreek.org</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="board-section">
+            <h2>Common Questions</h2>
+            <div style="margin-top: 2rem;">
+                <h3 style="color: var(--creek-blue); margin-bottom: 0.5rem; font-size: 1.2rem;">How do I pay HOA dues?</h3>
+                <p style="margin-bottom: 2rem;">Annual dues can be paid by check (mailed to the HOA) or through our online payment portal. Contact the treasurer for payment details.</p>
+
+                <h3 style="color: var(--creek-blue); margin-bottom: 0.5rem; font-size: 1.2rem;">How do I submit an architectural review request?</h3>
+                <p style="margin-bottom: 2rem;">Contact the HOA board at least 30 days before starting any exterior home modifications. We'll provide you with the review form and process details.</p>
+
+                <h3 style="color: var(--creek-blue); margin-bottom: 0.5rem; font-size: 1.2rem;">How do I report a violation or concern?</h3>
+                <p style="margin-bottom: 2rem;">Email the board at hoa@royalcreek.org with details. All reports are reviewed and addressed according to community guidelines.</p>
+
+                <h3 style="color: var(--creek-blue); margin-bottom: 0.5rem; font-size: 1.2rem;">How can I get involved?</h3>
+                <p style="margin-bottom: 2rem;">We always welcome volunteers! Attend a board meeting, join a committee, or help with community events. Contact us to learn about current opportunities.</p>
+
+                <h3 style="color: var(--creek-blue); margin-bottom: 0.5rem; font-size: 1.2rem;">Where can I get a pool pass?</h3>
+                <p style="margin-bottom: 2rem;">Contact the HOA board in April/May to request pool passes for the upcoming season. Passes are free for residents in good standing.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Royal Creek Neighborhood Association. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Raleigh, North Carolina</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
