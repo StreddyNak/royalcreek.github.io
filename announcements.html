@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements | Royal Creek Neighborhood</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --creek-blue: #2c5f7a;
+            --creek-teal: #4a9b8e;
+            --sand: #e8dcc4;
+            --stone: #5a5550;
+            --sage: #8fa88e;
+            --cream: #faf8f3;
+            --sunset: #d68568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Karla', sans-serif;
+            background: var(--cream);
+            color: var(--stone);
+            line-height: 1.7;
+        }
+
+        .nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--creek-blue);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--stone);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--creek-teal);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--creek-teal);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--creek-blue);
+            cursor: pointer;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--creek-blue) 0%, var(--creek-teal) 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--sand);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .announcements {
+            background: white;
+            border-left: 4px solid var(--creek-teal);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .announcements:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .announcement-date {
+            color: var(--creek-teal);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .announcement-title {
+            font-size: 1.5rem;
+            color: var(--creek-blue);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .announcement-content {
+            color: var(--stone);
+            line-height: 1.8;
+        }
+
+        .announcement-tag {
+            display: inline-block;
+            background: var(--sand);
+            color: var(--creek-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        footer {
+            background: var(--stone);
+            color: var(--sand);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Royal Creek</a>
+            <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="announcements.html" class="active">Announcements</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Neighborhood Announcements</h1>
+        <p>Stay up to date with the latest news and updates</p>
+    </div>
+
+    <div class="container">
+        <div class="announcements">
+            <div class="announcement-date">February 5, 2026</div>
+            <div class="announcement-title">Welcome to Our New Neighborhood Website!</div>
+            <div class="announcement-content">
+                <p>We're excited to launch this new platform to keep everyone connected and informed. This website will serve as your go-to resource for all neighborhood news, upcoming events, important contacts, and community resources.</p>
+                <p style="margin-top: 1rem;">Check back regularly for updates, and please share this website with your neighbors. If you have any suggestions for content or features you'd like to see, please don't hesitate to contact the HOA board.</p>
+            </div>
+            <span class="announcement-tag">Website</span>
+        </div>
+
+        <div class="announcements">
+            <div class="announcement-date">February 1, 2026</div>
+            <div class="announcement-title">Spring Cleanup Day Scheduled</div>
+            <div class="announcement-content">
+                <p>Mark your calendars! Our annual spring cleanup is scheduled for Saturday, March 15th from 9:00 AM to 12:00 PM. We'll be beautifying our common areas, sprucing up the neighborhood entrance, and doing general maintenance around the community.</p>
+                <p style="margin-top: 1rem;">We need volunteers! Please bring gloves, rakes, and any gardening tools you can spare. The HOA will provide trash bags, refreshments, and lots of appreciation for your help. This is a great opportunity to meet your neighbors and take pride in our community.</p>
+            </div>
+            <span class="announcement-tag">Community Event</span>
+        </div>
+
+        <div class="announcements">
+            <div class="announcement-date">January 28, 2026</div>
+            <div class="announcement-title">Trash & Recycling Schedule Reminder</div>
+            <div class="announcement-content">
+                <p><strong>Trash Pickup:</strong> Every Monday and Thursday<br>
+                <strong>Recycling Pickup:</strong> Every Tuesday<br>
+                <strong>Please have bins out by 7:00 AM</strong></p>
+                <p style="margin-top: 1rem;">Please ensure all trash is properly bagged and recycling is clean and sorted. Bins should be placed at the curb the night before or early morning of pickup day. Please retrieve bins by end of day to keep our neighborhood looking neat.</p>
+            </div>
+            <span class="announcement-tag">Reminder</span>
+        </div>
+
+        <div class="announcements">
+            <div class="announcement-date">January 20, 2026</div>
+            <div class="announcement-title">Winter Weather Preparations</div>
+            <div class="announcement-content">
+                <p>As we head into the coldest months, please remember to protect your outdoor plumbing and bring in any sensitive plants. If you'll be traveling, consider having a neighbor check on your home during freezing temperatures.</p>
+                <p style="margin-top: 1rem;">In the event of snow or ice, the HOA will coordinate plowing of main roads within the community. Please park vehicles in driveways to allow plows full access to streets.</p>
+            </div>
+            <span class="announcement-tag">Seasonal</span>
+        </div>
+
+        <div class="announcements">
+            <div class="announcement-date">January 10, 2026</div>
+            <div class="announcement-title">HOA Dues Payment Reminder</div>
+            <div class="announcement-content">
+                <p>Annual HOA dues for 2026 are due by February 1st. Dues help maintain our common areas, fund community events, and cover essential services like landscaping and snow removal.</p>
+                <p style="margin-top: 1rem;">Payment can be made by check (mail to HOA address) or online through the payment portal. If you have questions about your dues or payment options, please contact the treasurer.</p>
+            </div>
+            <span class="announcement-tag">Important</span>
+        </div>
+
+        <div class="announcements">
+            <div class="announcement-date">December 28, 2025</div>
+            <div class="announcement-title">Thank You for a Great Year!</div>
+            <div class="announcement-content">
+                <p>As 2025 comes to a close, the HOA board would like to thank everyone who participated in community events, volunteered their time, and helped make Royal Creek such a wonderful place to live.</p>
+                <p style="margin-top: 1rem;">We're looking forward to an even better 2026 with more events, improvements, and opportunities to strengthen our community bonds. Wishing all residents a happy and healthy new year!</p>
+            </div>
+            <span class="announcement-tag">Community</span>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Royal Creek Neighborhood Association. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Raleigh, North Carolina</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
