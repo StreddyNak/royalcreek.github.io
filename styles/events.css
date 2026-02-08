@@ -1,0 +1,88 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.event-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.event-date {
+    background: linear-gradient(135deg, var(--sunset), var(--creek-teal));
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.event-day {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+}
+
+.event-month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.25rem;
+}
+
+.event-details {
+    padding: 1.5rem;
+}
+
+.event-title {
+    font-size: 1.3rem;
+    color: var(--creek-blue);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+.event-time {
+    color: var(--creek-teal);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.event-description {
+    color: var(--stone);
+    line-height: 1.6;
+}
+
+.event-location {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--sand);
+    color: var(--stone);
+    font-size: 0.95rem;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--creek-blue);
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+}
