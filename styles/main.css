@@ -1,3 +1,5 @@
+@import "common.css";
+
 :root {
     --creek-blue: #2c5f7a;
     --creek-teal: #4a9b8e;
@@ -280,43 +282,4 @@ footer {
     text-align: center;
     padding: 2rem;
     margin-top: 4rem;
-}
-
-@media (max-width: 768px) {
-    .mobile-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 1rem 2rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    .card-grid {
-        grid-template-columns: 1fr;
-        margin-top: -3rem;
-    }
-
-    .page-header h1 {
-        font-size: 2rem;
-    }
-
-    .container {
-        padding: 2rem 1rem;
-    }
 }

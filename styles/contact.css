@@ -1,21 +1,3 @@
-.page-header {
-    background: linear-gradient(135deg, var(--creek-blue) 0%, var(--creek-teal) 100%);
-    padding: 3rem 2rem;
-    text-align: center;
-    color: white;
-}
-
-.page-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
-
-.page-header p {
-    font-size: 1.2rem;
-    color: var(--sand);
-}
-
 .container {
     max-width: 900px;
     margin: 0 auto;
@@ -171,38 +153,4 @@
     background: var(--creek-teal);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(44, 95, 122, 0.3);
-}
-
-@media (max-width: 768px) {
-    .mobile-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 1rem 2rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .page-header h1 {
-        font-size: 2rem;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .board-members {
-        grid-template-columns: 1fr;
-    }
 }
