@@ -1,0 +1,208 @@
+.page-header {
+    background: linear-gradient(135deg, var(--creek-blue) 0%, var(--creek-teal) 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    color: white;
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    color: var(--sand);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.contact-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--stone);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(44, 95, 122, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(44, 95, 122, 0.15);
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--creek-teal), var(--sage));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+}
+
+.contact-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--creek-blue);
+    margin-bottom: 1rem;
+}
+
+.contact-card p {
+    color: var(--stone);
+    margin-bottom: 0.5rem;
+}
+
+.contact-card a {
+    color: var(--creek-teal);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+.board-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(44, 95, 122, 0.08);
+    margin-bottom: 3rem;
+}
+
+.board-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--creek-blue);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.board-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.board-member {
+    text-align: center;
+}
+
+.board-member h3 {
+    color: var(--creek-blue);
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.board-member .role {
+    color: var(--creek-teal);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.board-member .email {
+    color: var(--stone);
+    font-size: 0.9rem;
+}
+
+.meeting-info {
+    background: linear-gradient(135deg, rgba(74, 155, 142, 0.1), rgba(143, 168, 142, 0.1));
+    border: 2px solid var(--creek-teal);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.meeting-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--creek-blue);
+    margin-bottom: 1rem;
+}
+
+.meeting-info p {
+    margin-bottom: 0.75rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    background: var(--creek-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background: var(--creek-teal);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44, 95, 122, 0.3);
+}
+
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .board-members {
+        grid-template-columns: 1fr;
+    }
+}
